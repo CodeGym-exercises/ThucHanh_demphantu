@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		let input = Number(prompt("Nạp bao nhiêu phần tử??"));
+		
+		let newArray = new Array(input);
+
+		insertData(newArray);
+
+		show(newArray);
+
+		let element = Number(prompt("Phần tử cần tìm kiếm??"));
+
+		console.log(element+": =>>"+Count(newArray,element));
+		document.write("</br>"+element+": =>>"+Count(newArray,element));
+
+		function show(arr){
+			f(arr,function(arr,index){
+			   console.log(arr[index] +" ");
+			   document.write(arr[index] + " ");
+
+            });
+		}
+
+		function insertData(arr){
+			f(arr,function (arr,index){
+                arr[index] = Math.round(Math.random()*10);
+			});
+		}
+
+		function Count(arr,element){
+            let count = 0;
+            f(arr,function(arr,index){
+            	if(arr[index]==element){
+            		count++;
+            	}
+            });
+			return count;
+		}
+
+		function f(arr, dosomethings){
+		    let length = arr.length;
+		    for(let i = 0;i<length;i++){
+		        dosomethings(arr,i);
+			}
+		}
+	</script>
+</body>
+</html>
